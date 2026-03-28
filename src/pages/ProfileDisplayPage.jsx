@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProfileCard from '../components/ProfileCard'
 import Button from '../components/Button'
@@ -8,6 +8,7 @@ const ProfileDisplayPage = () => {
   const navigate = useNavigate()
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
+  const profileRef = useRef(null)
 
   // Load profile from localStorage on component mount
   useEffect(() => {
@@ -43,6 +44,27 @@ const ProfileDisplayPage = () => {
     }
   }
 
+  const handleDownloadPDF = async () => {
+    try {
+      // Dynamically import html2pdf
+      const html2pdf = (await import('html2pdf.js')).default
+      
+      const element = profileRef.current
+      const opt = {
+        margin: 10,
+        filename: `${profile.name}_Profile.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+      }
+      
+      html2pdf().set(opt).from(element).save()
+    } catch (error) {
+      console.error('Error generating PDF:', error)
+      alert('Failed to download PDF. Please try again.')
+    }
+  }
+
   const handleBackToHome = () => {
     navigate('/')
   }
@@ -66,7 +88,7 @@ const ProfileDisplayPage = () => {
       </div>
 
       <div className="display-container">
-        <div className="card-wrapper">
+        <div className="card-wrapper" ref={profileRef}>
           <ProfileCard profile={profile} />
         </div>
 
@@ -76,6 +98,11 @@ const ProfileDisplayPage = () => {
               <Button 
                 text="Edit Profile" 
                 onClick={handleCreateNew}
+                variant="primary"
+              />
+              <Button 
+                text="Download as PDF" 
+                onClick={handleDownloadPDF}
                 variant="primary"
               />
               <Button 

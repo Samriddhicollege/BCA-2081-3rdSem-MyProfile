@@ -56,6 +56,10 @@
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .navbar-link:hover {
@@ -121,6 +125,103 @@
   box-shadow: 0 8px 20px rgba(79, 140, 255, 0.2);
 }
 
+/* Features Modal Styles */
+.features-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.features-modal {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 90%;
+  padding: 40px;
+  animation: scaleIn 0.3s ease;
+}
+
+.features-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.features-modal-header h2 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999999;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #4F8CFF;
+  transform: scale(1.2);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #E8F0FF 0%, #f0f5ff 100%);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #4F8CFF 0%, #2F6FE4 100%);
+  color: white;
+}
+
+.feature-item:hover .feature-icon,
+.feature-item:hover h3,
+.feature-item:hover p {
+  color: white;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.feature-item h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.feature-item p {
+  color: #666666;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 20px;
@@ -130,7 +231,8 @@
   }
 
   .navbar-menu {
-    display: none;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .navbar-actions {
@@ -140,5 +242,14 @@
   .navbar-btn {
     padding: 8px 16px;
     font-size: 0.85rem;
+  }
+
+  .features-modal {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
   }
 }

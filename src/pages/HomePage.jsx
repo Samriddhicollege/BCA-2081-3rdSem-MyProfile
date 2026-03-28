@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import Navbar from '../components/Navbar'
@@ -6,13 +6,28 @@ import '../css/HomePage.css'
 
 const HomePage = () => {
   const navigate = useNavigate()
+  const [savedProfiles, setSavedProfiles] = useState([])
 
-  const handleGetStarted = () => {
+  // Load saved profiles on component mount
+  useEffect(() => {
+    const allProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
+    setSavedProfiles(allProfiles.slice(0, 3)) // Show only first 3 profiles
+  }, [])
+
+  const handleStartAsGuest = () => {
     navigate('/profile-generator')
   }
 
-  const handleLearnMore = () => {
-    navigate('/login')
+  const handleViewProfiles = () => {
+    navigate('/profiles-list')
+  }
+
+  const handleViewProfile = (profileId) => {
+    const profile = JSON.parse(localStorage.getItem('allProfiles') || '[]').find(p => p.id === profileId)
+    if (profile) {
+      localStorage.setItem('currentProfile', JSON.stringify(profile))
+      navigate('/profile-display')
+    }
   }
 
   return (
@@ -35,11 +50,8 @@ const HomePage = () => {
           </p>
           
           <div className="hero-cta">
-            <button className="btn btn-primary" onClick={handleGetStarted}>
-              Get Started Free
-            </button>
-            <button className="btn btn-secondary" onClick={handleLearnMore}>
-              Learn More
+            <button className="btn btn-primary" onClick={handleStartAsGuest}>
+              Start as Guest
             </button>
           </div>
         </div>
@@ -62,22 +74,6 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-
-        {/* Floating Stat Cards */}
-        <div className="stat-cards-container">
-          <div className="stat-card stat-card-1">
-            <div className="stat-label">Profiles Created</div>
-            <div className="stat-value">1000+</div>
-          </div>
-          <div className="stat-card stat-card-2">
-            <div className="stat-label">Active Users</div>
-            <div className="stat-value">500+</div>
-          </div>
-          <div className="stat-card stat-card-3">
-            <div className="stat-label">Countries</div>
-            <div className="stat-value">45+</div>
-          </div>
-        </div>
       </div>
 
       {/* Features Section */}
@@ -87,6 +83,42 @@ const HomePage = () => {
           <h2 className="section-title">
             Everything You Need to Create Professional Profile Cards
           </h2>
+        </div>
+      </section>
+
+      {/* Saved Profiles Section */}
+      <section className="saved-profiles-section">
+        <div className="profiles-section-container">
+          <div className="profiles-section-header">
+            <h2>Your Saved Profiles</h2>
+            <button className="btn btn-primary" onClick={handleViewProfiles}>
+              View All Profiles
+            </button>
+          </div>
+          <div className="profiles-preview-grid">
+            {savedProfiles.length === 0 ? (
+              <div className="no-profiles-message">
+                <p>No profiles yet. Create your first profile to get started!</p>
+              </div>
+            ) : (
+              savedProfiles.map(profile => (
+                <div key={profile.id} className="profile-preview-card">
+                  <div className="preview-avatar">
+                    {profile.photo ? (
+                      <img src={profile.photo} alt={profile.name} />
+                    ) : (
+                      profile.name.charAt(0).toUpperCase()
+                    )}
+                  </div>
+                  <h3>{profile.name}</h3>
+                  <p>{profile.jobRole}</p>
+                  <button className="btn btn-secondary" onClick={() => handleViewProfile(profile.id)}>
+                    View Profile
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </section>
     </div>
