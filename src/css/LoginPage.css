@@ -1,7 +1,7 @@
-/* LoginPage Styles - Lime Green Background Theme */
+/* LoginPage Styles - Modern SaaS Blue Theme */
 .login-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,11 +19,11 @@
   position: absolute;
   top: -50px;
   left: 0;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid #1a1a1a;
-  color: #1a1a1a;
+  background: transparent;
+  border: 2px solid #4F8CFF;
+  color: #4F8CFF;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
@@ -32,17 +32,18 @@
 }
 
 .back-button:hover {
-  background: #FFFFFF;
-  color: #1a1a1a;
+  background: #4F8CFF;
+  color: white;
+  transform: translateX(-3px);
 }
 
 .login-form {
-  background: #FFFFFF;
+  background: white;
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(26, 26, 26, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   animation: slideUp 0.6s ease-out;
-  border: 2px solid #1a1a1a;
+  border: 1px solid rgba(79, 140, 255, 0.1);
 }
 
 .login-header {
@@ -51,25 +52,25 @@
 }
 
 .login-header h1 {
-  color: #1a1a1a;
+  color: var(--text-dark);
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .login-header p {
-  color: #666666;
+  color: var(--text-light);
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .login-note {
-  background: rgba(184, 255, 0, 0.2);
-  border-left: 4px solid #B8FF00;
+  background: rgba(79, 140, 255, 0.05);
+  border-left: 4px solid #4F8CFF;
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 25px;
   font-size: 0.9rem;
-  color: #1a1a1a;
+  color: var(--text-dark);
   line-height: 1.5;
 }
 
@@ -85,12 +86,12 @@
 .login-footer {
   text-align: center;
   margin-top: 20px;
-  color: #666666;
+  color: var(--text-light);
   font-size: 0.95rem;
 }
 
 .login-footer a {
-  color: #1a1a1a;
+  color: #4F8CFF;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;

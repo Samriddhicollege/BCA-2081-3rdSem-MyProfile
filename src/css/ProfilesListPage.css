@@ -1,7 +1,7 @@
-/* ProfilesListPage Styles - Lime Green Background Theme */
+/* ProfilesListPage Styles - Modern SaaS Blue Theme */
 .profiles-list-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
   padding: 40px 20px;
   animation: fadeIn 0.6s ease-out;
 }
@@ -9,7 +9,7 @@
 .list-header {
   position: relative;
   text-align: center;
-  color: #1a1a1a;
+  color: var(--text-dark);
   margin-bottom: 40px;
 }
 
@@ -17,11 +17,11 @@
   position: absolute;
   top: -20px;
   left: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid #1a1a1a;
-  color: #1a1a1a;
+  background: transparent;
+  border: 2px solid #4F8CFF;
+  color: #4F8CFF;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
@@ -30,23 +30,23 @@
 }
 
 .list-header .back-button:hover {
-  background: #FFFFFF;
-  color: #1a1a1a;
+  background: #4F8CFF;
+  color: white;
   transform: translateX(-5px);
 }
 
 .list-header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #1a1a1a;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  color: var(--text-dark);
+  text-shadow: none;
   animation: slideDown 0.6s ease-out;
 }
 
 .list-header p {
   font-size: 1.1rem;
   opacity: 0.9;
-  color: #1a1a1a;
+  color: var(--text-light);
   animation: slideDown 0.6s ease-out 0.1s both;
 }
 
@@ -78,26 +78,26 @@
 
 .profile-card-item {
   position: relative;
-  background: #FFFFFF;
-  border-radius: 12px;
+  background: white;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
-  border: 2px solid #1a1a1a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(79, 140, 255, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   animation: slideUp 0.6s ease-out;
 }
 
 .profile-card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(26, 26, 26, 0.3);
-  border-color: #1a1a1a;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 36px rgba(79, 140, 255, 0.15);
+  border-color: rgba(79, 140, 255, 0.3);
 }
 
 .profile-item-header {
   position: relative;
   height: 120px;
-  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  background: linear-gradient(135deg, #4F8CFF 0%, #2F6FE4 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,14 +107,14 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #1a1a1a;
-  border: 3px solid #FFFFFF;
+  color: #4F8CFF;
+  border: 3px solid white;
   object-fit: cover;
 }
 
@@ -131,19 +131,20 @@
 }
 
 .profile-item-name {
-  color: #1a1a1a;
+  color: var(--text-dark);
   font-size: 1.3rem;
   margin-bottom: 5px;
+  font-weight: 700;
 }
 
 .profile-item-role {
-  color: #333333;
+  color: #4F8CFF;
   font-size: 0.95rem;
   margin-bottom: 15px;
 }
 
 .profile-item-email {
-  color: #666666;
+  color: var(--text-light);
   font-size: 0.9rem;
   margin-bottom: 15px;
   white-space: nowrap;
@@ -165,7 +166,7 @@
 .empty-profiles-message {
   text-align: center;
   padding: 60px 20px;
-  color: #1a1a1a;
+  color: var(--text-dark);
   font-size: 1.1rem;
 }
 

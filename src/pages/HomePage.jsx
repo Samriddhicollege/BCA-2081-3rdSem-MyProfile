@@ -1,111 +1,94 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
+import Navbar from '../components/Navbar'
 import '../css/HomePage.css'
 
 const HomePage = () => {
   const navigate = useNavigate()
 
-  // Navigate to profile generator for guest users
-  const handleGuestAccess = () => {
+  const handleGetStarted = () => {
     navigate('/profile-generator')
   }
 
-  // Navigate to login page
-  const handleLoginClick = () => {
+  const handleLearnMore = () => {
     navigate('/login')
-  }
-
-  // Navigate to profiles list
-  const handleViewProfiles = () => {
-    navigate('/profiles-list')
   }
 
   return (
     <div className="home-page">
-      <div className="home-container">
-        <div className="home-content">
-          <h1 className="home-title">Profile Card Generator</h1>
-          <p className="home-subtitle">Create your professional profile in minutes</p>
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-container">
+          <div className="hero-tag">Create Professional Profiles</div>
           
-          <div className="home-description">
-            <p>
-              Welcome to the Profile Card Generator! Choose how you'd like to continue:
-            </p>
-            <ul className="features-list">
-              <li>✓ Create and customize your professional profile</li>
-              <li>✓ Generate beautiful profile cards</li>
-              <li>✓ Save and manage multiple profiles</li>
-              <li>✓ Add photos to your profiles</li>
-              <li>✓ Access your profiles anytime</li>
-            </ul>
+          <h1 className="hero-title">
+            Build Your Professional <span className="highlight">Profile Card</span> in Minutes
+          </h1>
+          
+          <p className="hero-subtitle">
+            MyProfile helps you create beautiful, modern profile cards with photos, 
+            custom information, and professional styling. Manage multiple profiles and 
+            showcase your professional identity effortlessly.
+          </p>
+          
+          <div className="hero-cta">
+            <button className="btn btn-primary" onClick={handleGetStarted}>
+              Get Started Free
+            </button>
+            <button className="btn btn-secondary" onClick={handleLearnMore}>
+              Learn More
+            </button>
           </div>
+        </div>
+      </section>
 
-          <div className="home-actions">
-            <div className="action-card guest-card">
-              <h3>Continue as Guest</h3>
-              <p>Create a profile without logging in. Your data will be saved locally.</p>
-              <Button 
-                text="Continue as Guest" 
-                onClick={handleGuestAccess}
-                variant="primary"
-              />
+      {/* Dashboard Preview */}
+       <div style={{padding: '0 40px', maxWidth: '1200px', margin: '0 auto'}}>
+        <div className="dashboard-preview">
+          <div className="dashboard-card">
+            <div className="dashboard-header">
+              <div className="dashboard-title">Profile Card Preview</div>
+              <div className="dashboard-controls">
+                <div className="dashboard-dot"></div>
+                <div className="dashboard-dot"></div>
+                <div className="dashboard-dot"></div>
+              </div>
             </div>
-
-            <div className="divider">
-              <span>or</span>
-            </div>
-
-            <div className="action-card login-card">
-              <h3>Sign In</h3>
-              <p>Log in to your account to access saved profiles and more features.</p>
-              <Button 
-                text="Sign In" 
-                onClick={handleLoginClick}
-                variant="secondary"
-              />
-            </div>
-
-            <div className="action-card">
-              <h3>View All Profiles</h3>
-              <p>See all your saved profiles in one place.</p>
-              <Button 
-                text="View Profiles" 
-                onClick={handleViewProfiles}
-                variant="secondary"
-              />
+            <div className="dashboard-body">
+              <span>✨ Your profile card will appear here</span>
             </div>
           </div>
         </div>
 
-        <div className="home-illustration">
-          <div className="illustration-card">
-            <div className="illustration-avatar">👤</div>
-            <div className="illustration-title" style={{fontSize: '1.2rem', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '5px'}}>
-              Profile Card
-            </div>
-            <div className="illustration-line medium"></div>
-            <div className="illustration-line"></div>
-            <div className="illustration-line short"></div>
-            
-            {/* Placeholder profile content */}
-            <div style={{marginTop: '20px', paddingTop: '20px', borderTop: '2px dashed #ccc', textAlign: 'left'}}>
-              <div style={{fontSize: '0.9rem', color: '#666', marginBottom: '8px'}}>
-                <span style={{fontWeight: 'bold', color: '#1a1a1a'}}>Name:</span> {' '} ***
-              </div>
-              <div style={{fontSize: '0.9rem', color: '#666', marginBottom: '8px'}}>
-                <span style={{fontWeight: 'bold', color: '#1a1a1a'}}>Role:</span> {' '} ***
-              </div>
-              <div style={{fontSize: '0.9rem', color: '#666', marginBottom: '8px'}}>
-                <span style={{fontWeight: 'bold', color: '#1a1a1a'}}>Email:</span> {' '} ***
-              </div>
-              <div style={{fontSize: '0.9rem', color: '#666'}}>
-                <span style={{fontWeight: 'bold', color: '#1a1a1a'}}>Bio:</span> {' '} ***
-              </div>
-            </div>
+        {/* Floating Stat Cards */}
+        <div className="stat-cards-container">
+          <div className="stat-card stat-card-1">
+            <div className="stat-label">Profiles Created</div>
+            <div className="stat-value">1000+</div>
+          </div>
+          <div className="stat-card stat-card-2">
+            <div className="stat-label">Active Users</div>
+            <div className="stat-value">500+</div>
+          </div>
+          <div className="stat-card stat-card-3">
+            <div className="stat-label">Countries</div>
+            <div className="stat-value">45+</div>
           </div>
         </div>
       </div>
+
+      {/* Features Section */}
+      <section className="features-section">
+        <div className="section-header">
+          <div className="section-subtitle">Why MyProfile?</div>
+          <h2 className="section-title">
+            Everything You Need to Create Professional Profile Cards
+          </h2>
+        </div>
+      </section>
     </div>
   )
 }

@@ -1,8 +1,8 @@
-/* Button Component Styles - Updated Theme */
+/* Button Component Styles - Modern SaaS Blue Theme */
 .btn {
   padding: 12px 24px;
-  border: 2px solid #1a1a1a;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -14,7 +14,7 @@
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(26, 26, 26, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .btn:active {
@@ -22,29 +22,29 @@
 }
 
 .btn-primary {
-  background-color: #FFFFFF;
-  color: #1a1a1a;
-  box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+  background: linear-gradient(135deg, #4F8CFF 0%, #2F6FE4 100%);
+  color: white;
+  border: 2px solid #4F8CFF;
   font-weight: 700;
-  border: 2px solid #1a1a1a;
 }
 
 .btn-primary:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 8px 16px rgba(26, 26, 26, 0.3);
+  background: linear-gradient(135deg, #2F6FE4 0%, #1e54c2 100%);
+  border-color: #2F6FE4;
+  box-shadow: 0 12px 24px rgba(79, 140, 255, 0.4);
 }
 
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: #1a1a1a;
-  border: 2px solid #1a1a1a;
-  box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+  background: transparent;
+  color: #4F8CFF;
+  border: 2px solid #4F8CFF;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
 }
 
 .btn-secondary:hover {
-  background-color: #f0f0f0;
-  color: #1a1a1a;
-  box-shadow: 0 8px 16px rgba(26, 26, 26, 0.3);
+  background: #4F8CFF;
+  color: white;
+  box-shadow: 0 8px 20px rgba(79, 140, 255, 0.3);
 }
 
 .btn-danger {
@@ -58,6 +58,7 @@
   background-color: #cc0000;
   box-shadow: 0 8px 16px rgba(255, 68, 68, 0.5);
   border: 2px solid #cc0000;
+}
 }
 
 @media (max-width: 768px) {

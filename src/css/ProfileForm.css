@@ -1,15 +1,15 @@
-/* ProfileForm Component Styles - Lime Green Background Theme */
+/* ProfileForm Component Styles - Modern SaaS Blue Theme */
 .profile-form {
-  background: #FFFFFF;
+  background: white;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  border: 2px solid #1a1a1a;
+  border: 1px solid rgba(79, 140, 255, 0.1);
 }
 
 .profile-form h2 {
-  color: #1a1a1a;
+  color: var(--text-dark);
   margin-bottom: 25px;
   font-size: 1.8rem;
   text-align: center;
@@ -23,30 +23,30 @@
 
 .textarea-field {
   padding: 12px 15px;
-  border: 2px solid #1a1a1a;
-  border-radius: 8px;
+  border: 2px solid rgba(79, 140, 255, 0.2);
+  border-radius: 12px;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background-color: #FFFFFF;
-  color: #1a1a1a;
+  background-color: white;
+  color: var(--text-dark);
   resize: vertical;
   min-height: 100px;
 }
 
 .textarea-field:focus {
   outline: none;
-  border-color: #1a1a1a;
-  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
-  background-color: #FFFFFF;
+  border-color: #4F8CFF;
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.1);
+  background-color: white;
 }
 
 .textarea-field:hover {
-  border-color: #333333;
+  border-color: #4F8CFF;
 }
 
 .textarea-field::placeholder {
-  color: #999999;
+  color: var(--text-muted);
 }
 
 .photo-upload-container {
@@ -58,7 +58,7 @@
 .photo-upload-label {
   font-weight: 600;
   margin-bottom: 8px;
-  color: #1a1a1a;
+  color: var(--text-dark);
   font-size: 0.95rem;
 }
 
@@ -71,11 +71,11 @@
 
 .photo-input-field {
   padding: 10px 15px;
-  border: 2px dashed #1a1a1a;
-  border-radius: 8px;
+  border: 2px dashed #4F8CFF;
+  border-radius: 12px;
   font-size: 0.9rem;
-  background-color: #FFFFFF;
-  color: #1a1a1a;
+  background-color: white;
+  color: var(--text-dark);
   cursor: pointer;
   transition: all 0.3s ease;
   flex: 1;
@@ -83,7 +83,7 @@
 
 .photo-input-field:hover {
   border-style: solid;
-  background-color: #f5f5f5;
+  background-color: rgba(79, 140, 255, 0.05);
 }
 
 .photo-preview {
@@ -91,8 +91,8 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #1a1a1a;
-  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.2);
+  border: 2px solid #4F8CFF;
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.2);
 }
 
 .form-actions {
