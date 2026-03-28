@@ -1,0 +1,51 @@
+/* Input Component Styles - Lime Green Background Theme */
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+}
+
+.required {
+  color: #cf0000;
+  margin-left: 4px;
+}
+
+.input-field {
+  padding: 12px 15px;
+  border: 2px solid #1a1a1a;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #FFFFFF;
+  color: #1a1a1a;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+  background-color: #FFFFFF;
+}
+
+.input-field:hover {
+  border-color: #333333;
+}
+
+.input-field::placeholder {
+  color: #999999;
+}
+
+@media (max-width: 768px) {
+  .input-field {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}

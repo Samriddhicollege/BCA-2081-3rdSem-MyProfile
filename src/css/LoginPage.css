@@ -1,0 +1,142 @@
+/* LoginPage Styles - Lime Green Background Theme */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: #FFFFFF;
+  color: #1a1a1a;
+}
+
+.login-form {
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(26, 26, 26, 0.2);
+  animation: slideUp 0.6s ease-out;
+  border: 2px solid #1a1a1a;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.login-header h1 {
+  color: #1a1a1a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.login-note {
+  background: rgba(184, 255, 0, 0.2);
+  border-left: 4px solid #B8FF00;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+.login-note p {
+  margin: 0;
+}
+
+.login-form button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666666;
+  font-size: 0.95rem;
+}
+
+.login-footer a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 0 15px;
+  }
+
+  .back-button {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .login-form {
+    padding: 30px 20px;
+  }
+
+  .login-header h1 {
+    font-size: 1.7rem;
+  }
+}

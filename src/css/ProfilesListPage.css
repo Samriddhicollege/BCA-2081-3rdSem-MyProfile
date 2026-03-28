@@ -1,0 +1,250 @@
+/* ProfilesListPage Styles - Lime Green Background Theme */
+.profiles-list-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  padding: 40px 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.list-header {
+  position: relative;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.list-header .back-button {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.list-header .back-button:hover {
+  background: #FFFFFF;
+  color: #1a1a1a;
+  transform: translateX(-5px);
+}
+
+.list-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  animation: slideDown 0.6s ease-out;
+}
+
+.list-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  color: #1a1a1a;
+  animation: slideDown 0.6s ease-out 0.1s both;
+}
+
+.list-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+  animation: slideDown 0.6s ease-out 0.2s both;
+}
+
+.list-actions button {
+  padding: 10px 20px;
+  min-width: 150px;
+}
+
+.profiles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.profile-card-item {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+  border: 2px solid #1a1a1a;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: slideUp 0.6s ease-out;
+}
+
+.profile-card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(26, 26, 26, 0.3);
+  border-color: #1a1a1a;
+}
+
+.profile-item-header {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(135deg, #B8FF00 0%, #A8FF00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-item-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  border: 3px solid #FFFFFF;
+  object-fit: cover;
+}
+
+.profile-item-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.profile-item-content {
+  padding: 20px;
+}
+
+.profile-item-name {
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.profile-item-role {
+  color: #333333;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.profile-item-email {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-item-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-item-actions button {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.empty-profiles-message {
+  text-align: center;
+  padding: 60px 20px;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.empty-profiles-message p {
+  margin-bottom: 20px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profiles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .profiles-list-page {
+    padding: 20px 15px;
+  }
+
+  .list-header {
+    margin-bottom: 30px;
+  }
+
+  .list-header .back-button {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .list-header h1 {
+    font-size: 2rem;
+  }
+
+  .list-header p {
+    font-size: 1rem;
+  }
+
+  .profiles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .list-actions {
+    flex-direction: column;
+  }
+
+  .list-actions button {
+    width: 100%;
+  }
+}
