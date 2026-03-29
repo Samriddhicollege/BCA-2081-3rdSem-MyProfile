@@ -10,10 +10,10 @@ const ProfileCard = ({ profile }) => {
   return (
     <div className="profile-card">
       <div className="profile-avatar">
-        {profile.photo ? (
-          <img src={profile.photo} alt={profile.name} />
+        {profile.photo && profile.photo.trim() ? (
+          <img src={profile.photo} alt={profile.name} className="avatar-image" />
         ) : (
-          profile.name.charAt(0).toUpperCase()
+          <div className="avatar-letter">{profile.name.charAt(0).toUpperCase()}</div>
         )}
       </div>
       <div className="profile-content">

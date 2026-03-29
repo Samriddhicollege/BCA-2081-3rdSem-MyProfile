@@ -46,16 +46,44 @@ const ProfileDisplayPage = () => {
 
   const handleDownloadPDF = async () => {
     try {
-      // Dynamically import html2pdf
+      // Dynamically import required libraries
       const html2pdf = (await import('html2pdf.js')).default
       
+      // Create a clone of the profile card for PDF generation
       const element = profileRef.current
+      
+      // Ensure all images are loaded before generating PDF
+      const images = element.querySelectorAll('img')
+      const imagePromises = Array.from(images).map(img => {
+        return new Promise((resolve) => {
+          if (img.complete) {
+            resolve()
+          } else {
+            img.onload = resolve
+            img.onerror = resolve
+          }
+        })
+      })
+      
+      await Promise.all(imagePromises)
+      
       const opt = {
-        margin: 10,
-        filename: `${profile.name}_Profile.pdf`,
+        margin: [10, 10, 10, 10],
+        filename: `${profile.name}_Profile_Card.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          windowHeight: element.scrollHeight
+        },
+        jsPDF: { 
+          orientation: 'portrait', 
+          unit: 'mm', 
+          format: 'a4',
+          compress: true
+        }
       }
       
       html2pdf().set(opt).from(element).save()

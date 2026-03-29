@@ -30,13 +30,13 @@
 
 .input-field:focus {
   outline: none;
-  border-color: #4F8CFF;
-  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.1);
+  border-color: #87CEEB;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
   background-color: #FFFFFF;
 }
 
 .input-field:hover {
-  border-color: #4F8CFF;
+  border-color: #87CEEB;
 }
 
 .input-field::placeholder {

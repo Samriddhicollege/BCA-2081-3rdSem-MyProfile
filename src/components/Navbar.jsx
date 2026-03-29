@@ -21,7 +21,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-logo" onClick={handleLogoClick}>
-            <span className="logo-icon">📋</span>
+            <img src="/logo.png" alt="MyProfile Logo" className="logo-image" />
             <span className="logo-text">MyProfile</span>
           </div>
           

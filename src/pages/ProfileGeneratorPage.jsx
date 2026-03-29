@@ -11,6 +11,7 @@ const SAMPLE_PROFILE = {
   phone: '+1 (555) 987-6543',
   location: 'San Francisco, USA',
   bio: 'Passionate about building amazing user experiences with React and modern web technologies. Coffee enthusiast and tech blogger.'
+  // Note: photo is intentionally NOT included here so it doesn't override uploaded photos
 }
 
 const ProfileGeneratorPage = () => {
@@ -29,7 +30,10 @@ const ProfileGeneratorPage = () => {
 
   // Custom handler to fill sample data
   const handleFillSampleData = () => {
-    setFormData(SAMPLE_PROFILE)
+    setFormData(prev => ({
+      ...prev,
+      ...SAMPLE_PROFILE
+    }))
   }
 
   // Custom handler to save profile and navigate

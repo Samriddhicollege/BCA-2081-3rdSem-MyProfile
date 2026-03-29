@@ -5,7 +5,7 @@
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  border: 1px solid rgba(79, 140, 255, 0.1);
+  border: 1px solid rgba(135, 206, 235, 0.1);
 }
 
 .profile-form h2 {
@@ -23,7 +23,7 @@
 
 .textarea-field {
   padding: 12px 15px;
-  border: 2px solid rgba(79, 140, 255, 0.2);
+  border: 2px solid rgba(135, 206, 235, 0.2);
   border-radius: 12px;
   font-size: 1rem;
   font-family: inherit;
@@ -36,13 +36,13 @@
 
 .textarea-field:focus {
   outline: none;
-  border-color: #4F8CFF;
-  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.1);
+  border-color: #87CEEB;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
   background-color: white;
 }
 
 .textarea-field:hover {
-  border-color: #4F8CFF;
+  border-color: #87CEEB;
 }
 
 .textarea-field::placeholder {
@@ -71,7 +71,7 @@
 
 .photo-input-field {
   padding: 10px 15px;
-  border: 2px dashed #4F8CFF;
+  border: 2px dashed #87CEEB;
   border-radius: 12px;
   font-size: 0.9rem;
   background-color: white;
@@ -83,7 +83,7 @@
 
 .photo-input-field:hover {
   border-style: solid;
-  background-color: rgba(79, 140, 255, 0.05);
+  background-color: rgba(135, 206, 235, 0.05);
 }
 
 .photo-preview {
@@ -91,8 +91,8 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #4F8CFF;
-  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.2);
+  border: 2px solid #87CEEB;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.2);
 }
 
 .form-actions {

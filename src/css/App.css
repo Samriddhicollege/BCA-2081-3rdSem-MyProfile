@@ -1,14 +1,14 @@
 /* App Main Styles - Modern SaaS Blue Theme */
 :root {
-  --primary: #4F8CFF;
-  --primary-dark: #2F6FE4;
-  --primary-light: #E8F0FF;
-  --background-dark: #0f172a;
-  --background-light: #f8fafc;
+  --primary: #87CEEB;
+  --primary-dark: #6BB6D6;
+  --primary-light: #E0F6FF;
+  --background-dark: #e6f2f7;
+  --background-light: #f0f8fc;
   --text-dark: #1a1a1a;
   --text-light: #666666;
   --text-muted: #999999;
-  --border-light: rgba(79, 140, 255, 0.1);
+  --border-light: rgba(135, 206, 235, 0.15);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
@@ -26,7 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #e0f6ff 0%, #f0f8fc 100%);
   color: var(--text-dark);
   min-height: 100vh;
 }
@@ -34,7 +34,7 @@ body {
 .app {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #e0f6ff 0%, #f0f8fc 100%);
 }
 
 @keyframes slideDown {
