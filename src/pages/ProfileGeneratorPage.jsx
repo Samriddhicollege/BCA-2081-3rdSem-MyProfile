@@ -7,8 +7,8 @@ import '../css/ProfileGeneratorPage.css'
 
 // Sample data for demo
 const SAMPLE_PROFILE = {
-  name: 'Sarah Anderson',
-  email: 'sarah.anderson@tech.com',
+  name: 'Arthur Morgan',
+  email: 'arthur.morgan@tech.com',
   jobRole: 'Senior Frontend Developer',
   phone: '+1 (555) 987-6543',
   location: 'San Francisco, USA',

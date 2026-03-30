@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   min-height: 300px;
-  color: #a0aec0;
+  color: #ffffff;
   font-size: 1.1rem;
   border: 2px dashed rgba(59, 130, 246, 0.3);
   background-color: rgba(17, 24, 39, 0.5);
@@ -19,55 +19,51 @@
   padding: 32px;
 }
 
-/* ===== TEMPLATE 1: ID CARD STYLE (Teal & Dark Gray) ===== */
+/* ===== TEMPLATE 1: RED GRADIENT WITH CIRCULAR PHOTO ===== */
 .profile-card.id-card {
   width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 360px;
+  border-radius: 24px;
+  overflow: visible;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   background: white;
+  position: relative;
+  padding-bottom: 20px;
 }
 
 .profile-card.id-card:hover {
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
   transform: translateY(-4px);
 }
 
-.id-card-header {
-  background-color: #2d2d2d;
-  padding: 16px;
-  text-align: center;
+.id-card-gradient {
+  background: linear-gradient(135deg, #E63946 0%, #B91C1C 100%);
+  height: 140px;
+  border-radius: 24px 24px 0 0;
+  width: 100%;
 }
 
-.id-card-company {
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.id-card-accent {
-  background-color: #4dc8b4;
-  padding: 24px 16px;
+.id-card-avatar-wrapper {
+  position: absolute;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  top: 80px;
+  z-index: 10;
 }
 
 .id-card-avatar {
-  width: 110px;
-  height: 110px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 5px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
   overflow: hidden;
   flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .id-card-avatar .avatar-image {
@@ -86,133 +82,234 @@
   font-size: 48px;
   font-weight: 900;
   color: white;
-  background-color: #4dc8b4;
+  background: linear-gradient(135deg, #E63946 0%, #B91C1C 100%);
+  border-radius: 50%;
+}
+
+.id-card-content {
+  padding: 110px 20px 20px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.id-card-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #1a1a1a;
+}
+
+.id-card-role {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #555;
+}
+
+.id-card-separator {
+  width: 50px;
+  height: 3px;
+  background-color: #E63946;
+  margin: 12px auto 16px;
+}
+
+.id-card-bio {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.id-card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.id-card-field {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+.id-card-icons {
+  font-size: 18px;
+  letter-spacing: 8px;
+  margin-top: 8px;
+}
+
+/* Kept for reference - old style */
+.id-card-header {
+  display: none;
+}
+
+.id-card-company {
+  display: none;
+}
+
+.id-card-accent {
+  display: none;
 }
 
 .id-card-details {
-  background-color: white;
-  padding: 20px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: none;
 }
 
 .id-row {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 8px 0;
+  display: none;
 }
 
 .id-label {
-  flex-basis: 80px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #4dc8b4;
-  flex-shrink: 0;
+  display: none;
 }
 
 .id-value {
-  font-size: 14px;
-  font-weight: 500;
-  color: #2d2d2d;
-  word-break: break-word;
-  line-height: 1.4;
-  flex: 1;
+  display: none;
 }
 
-/* ===== TEMPLATE 2: ROUNDED CARD WITH RED GRADIENT ===== */
-.profile-card.rounded-card {
+/* ===== TEMPLATE 2: DESIGN PRESERVATION CARD ===== */
+.profile-card.design-card {
   width: 100%;
   max-width: 380px;
-  border-radius: 32px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.25);
   background: white;
+  display: flex;
+  flex-direction: column;
 }
 
-.profile-card.rounded-card:hover {
+.profile-card.design-card:hover {
   box-shadow: 0 18px 65px rgba(0, 0, 0, 0.35);
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 }
 
-.rounded-card-top {
-  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-  padding: 40px 20px 0 20px;
-  display: flex;
-  justify-content: center;
-  min-height: 140px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.design-header {
+  background-color: #3d3d3d;
+  padding: 16px;
+  text-align: center;
 }
 
-.rounded-card-avatar {
-  width: 130px;
-  height: 130px;
+.design-header-text {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.design-photo-section {
+  background-color: #4dc8b4;
+  padding: 30px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.design-photo-frame {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 6px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #2a2a2a;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-.rounded-card-avatar .avatar-image {
+.design-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.rounded-card-avatar .avatar-letter {
+.design-photo-letter {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 56px;
+  font-size: 52px;
   font-weight: 900;
   color: white;
-  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  background-color: #2a2a2a;
+  border-radius: 50%;
 }
 
-.rounded-card-bottom {
-  padding: 30px 24px 24px 24px;
-  text-align: center;
+.design-content {
   background-color: white;
+  padding: 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.rounded-card-name {
-  font-size: 24px;
+.design-name {
+  font-size: 20px;
   font-weight: 700;
-  margin: 0 0 8px 0;
+  margin: 0;
   color: #2d2d2d;
+  text-align: center;
+  border-bottom: 2px solid #4dc8b4;
+  padding-bottom: 12px;
 }
 
-.rounded-card-role {
+.design-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.design-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.design-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4dc8b4;
+}
+
+.design-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d2d2d;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.design-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.design-footer-content {
+  background-color: #3d3d3d;
+  padding: 12px 16px;
+  text-align: center;
   font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 12px 0;
-  color: #999999;
 }
 
-.rounded-card-bio {
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
-  color: #555555;
+.design-footer-icons {
+  color: white;
+  letter-spacing: 8px;
 }
 
-.rounded-card-contact {
-  font-size: 12px;
-  margin: 6px 0;
-  color: #888888;
+.design-footer-stripe {
+  background-color: #4dc8b4;
+  height: 4px;
 }
 
 /* ===== TEMPLATE 3: FULL-BLEED PHOTO CARD WITH DARK GREEN BORDER ===== */
@@ -265,37 +362,51 @@
   font-size: 16px;
   font-weight: 600;
   margin: 0;
-  color: #e0e0e0;
+  color: #ffffff;
 }
 
 .full-bleed-bio {
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
-  color: #c0c0c0;
+  color: #ffffff;
 }
 
-.full-bleed-follow-btn {
-  background-color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1a2e1a;
-  cursor: pointer;
-  align-self: flex-end;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.full-bleed-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.full-bleed-follow-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+.full-bleed-detail-left,
+.full-bleed-detail-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.full-bleed-follow-btn:active {
-  transform: translateY(0);
+.full-bleed-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.full-bleed-detail-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.full-bleed-detail-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  word-break: break-word;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -316,26 +427,80 @@
     max-width: 100%;
   }
 
+  .id-card-gradient {
+    height: 130px;
+  }
+
+  .id-card-avatar-wrapper {
+    top: 70px;
+  }
+
   .id-card-avatar {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
+    border-width: 4px;
   }
 
   .id-card-avatar .avatar-letter {
     font-size: 42px;
   }
 
-  .id-row {
-    gap: 12px;
+  .id-card-content {
+    padding: 95px 18px 16px 18px;
   }
 
-  .id-label {
-    flex-basis: 70px;
-    font-size: 10px;
+  .id-card-name {
+    font-size: 20px;
   }
 
-  .id-value {
+  .id-card-role {
     font-size: 13px;
+  }
+
+  .id-card-bio {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .id-card-separator {
+    width: 45px;
+    height: 2px;
+  }
+
+  .id-card-field {
+    font-size: 11px;
+  }
+
+  /* Design Card */
+  .profile-card.design-card {
+    max-width: 100%;
+  }
+
+  .design-photo-frame {
+    width: 120px;
+    height: 120px;
+    border-width: 5px;
+  }
+
+  .design-photo-section {
+    padding: 24px 16px;
+  }
+
+  .design-content {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .design-name {
+    font-size: 18px;
+  }
+
+  .design-label {
+    font-size: 9px;
+  }
+
+  .design-value {
+    font-size: 12px;
   }
 
   /* Rounded Card */
@@ -344,12 +509,13 @@
   }
 
   .rounded-card-avatar {
-    width: 115px;
-    height: 115px;
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
   }
 
   .rounded-card-avatar .avatar-letter {
-    font-size: 50px;
+    font-size: 56px;
   }
 
   .rounded-card-name {
@@ -385,58 +551,104 @@
 }
 
 @media (max-width: 480px) {
-  .id-card-header {
-    padding: 12px;
+  .id-card-gradient {
+    height: 110px;
   }
 
-  .id-card-company {
-    font-size: 11px;
-  }
-
-  .id-card-accent {
-    padding: 20px 12px;
+  .id-card-avatar-wrapper {
+    top: 60px;
   }
 
   .id-card-avatar {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
   }
 
   .id-card-avatar .avatar-letter {
     font-size: 36px;
   }
 
-  .id-card-details {
-    padding: 16px 12px;
-    gap: 10px;
+  .id-card-content {
+    padding: 75px 16px 14px 16px;
   }
 
-  .id-row {
-    gap: 10px;
+  .id-card-name {
+    font-size: 18px;
   }
 
-  .id-label {
-    flex-basis: 60px;
-    font-size: 9px;
-  }
-
-  .id-value {
+  .id-card-role {
     font-size: 12px;
+    margin-bottom: 10px;
   }
 
-  /* Rounded Card */
-  .rounded-card-top {
-    padding: 30px 16px 0 16px;
-    min-height: 110px;
+  .id-card-separator {
+    width: 40px;
+    height: 2px;
+  }
+
+  .id-card-bio {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .id-card-field {
+    font-size: 10px;
+  }
+
+  .id-card-icons {
+    font-size: 16px;
+  }
+
+  /* Design Card */
+  .design-photo-frame {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
+
+  .design-photo-section {
+    padding: 20px 12px;
+  }
+
+  .design-header {
+    padding: 12px;
+  }
+
+  .design-header-text {
+    font-size: 10px;
+  }
+
+  .design-content {
+    padding: 16px 12px;
+    gap: 12px;
+  }
+
+  .design-name {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+
+  .design-label {
+    font-size: 8px;
+  }
+
+  .design-value {
+    font-size: 11px;
+  }
+
+  .design-footer-content {
+    padding: 10px 12px;
   }
 
   .rounded-card-avatar {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
   }
 
   .rounded-card-avatar .avatar-letter {
-    font-size: 44px;
+    font-size: 48px;
   }
 
   .rounded-card-bottom {

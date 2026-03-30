@@ -4,7 +4,7 @@ import '../css/TemplateSelector.css'
 const TemplateSelector = ({ selectedTemplate, onSelectTemplate }) => {
   const templates = [
     { id: 'idCard', name: 'ID Card', description: 'Professional ID Card Style' },
-    { id: 'roundedCard', name: 'Rounded Card', description: 'Modern Rounded Design' },
+    { id: 'roundedCard', name: 'Design Preservation', description: 'Modern Design with Circular Photo' },
     { id: 'fullBleed', name: 'Full-Bleed', description: 'Photo Background Style' }
   ]
 

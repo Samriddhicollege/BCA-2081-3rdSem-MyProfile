@@ -5,11 +5,11 @@ import '../styles/ProfileContainer.css'
 
 // Sample data for demo
 const SAMPLE_PROFILE = {
-  name: 'Sarah Anderson',
-  email: 'sarah.anderson@tech.com',
+  name: 'Arthur Morgan',
+  email: 'arthur.morgan@tech.com',
   jobRole: 'Senior Frontend Developer',
-  phone: '+1 (555) 987-6543',
-  location: 'San Francisco, USA',
+  phone: '+977 987-6543',
+  location: 'Bhaktapur, Nepal',
   bio: 'Passionate about building amazing user experiences with React and modern web technologies. Coffee enthusiast and tech blogger.'
 }
 

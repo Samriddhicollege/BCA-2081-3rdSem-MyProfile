@@ -91,8 +91,7 @@
 
 /* ID Card Preview */
 .template-preview.idCard {
-  background: linear-gradient(to bottom, #2d2d2d 0%, #2d2d2d 25%, #4dc8b4 45%, white 45%);
-  color: #4dc8b4;
+  background: linear-gradient(135deg, #E63946 0%, #B91C1C 100%);
 }
 
 .template-preview.idCard .preview-content {
@@ -100,24 +99,25 @@
   height: 30px;
   border-radius: 50%;
   background: white;
-  border: 2px solid white;
+  border: 3px solid white;
   position: absolute;
-  top: 35%;
+  top: 40%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Rounded Card Preview */
 .template-preview.roundedCard {
-  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 60%, white 60%);
+  background: linear-gradient(to bottom, #3d3d3d 0%, #3d3d3d 20%, #4dc8b4 20%, #4dc8b4 45%, white 45%, white 100%);
 }
 
 .template-preview.roundedCard .preview-content {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: white;
+  background: #2a2a2a;
   border: 3px solid white;
   position: absolute;
-  top: 45%;
+  top: 32%;
 }
 
 /* Full-Bleed Preview */

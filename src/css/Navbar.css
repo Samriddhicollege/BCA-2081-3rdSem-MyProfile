@@ -58,7 +58,7 @@
 }
 
 .navbar-link {
-  color: var(--text-muted);
+  color: #ffffff;
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
@@ -176,7 +176,7 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #999999;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -225,7 +225,7 @@
 }
 
 .feature-item p {
-  color: #666666;
+  color: #ffffff;
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }

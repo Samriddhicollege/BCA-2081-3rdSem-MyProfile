@@ -7,17 +7,15 @@ const ProfileCard = ({ profile, template = 'idCard' }) => {
     return <div className="profile-card empty-state">No profile data yet. Fill the form to create a profile.</div>
   }
 
-  // Template 1: ID Card Style (teal & dark gray)
+  // Template 1: Red Gradient with Circular Photo
   if (template === 'idCard') {
     return (
       <div className="profile-card id-card">
-        {/* Dark Gray Header */}
-        <div className="id-card-header">
-          <p className="id-card-company">{profile.jobRole || 'Professional'}</p>
-        </div>
+        {/* Red Gradient Top Section */}
+        <div className="id-card-gradient"></div>
 
-        {/* Teal Accent Bar with Avatar */}
-        <div className="id-card-accent">
+        {/* Circular Photo Overlay */}
+        <div className="id-card-avatar-wrapper">
           <div className="id-card-avatar">
             {profile.photo && profile.photo.trim() ? (
               <img src={profile.photo} alt={profile.name} className="avatar-image" />
@@ -27,62 +25,81 @@ const ProfileCard = ({ profile, template = 'idCard' }) => {
           </div>
         </div>
 
-        {/* White Lower Section */}
-        <div className="id-card-details">
-          <div className="id-row">
-            <span className="id-label">Name</span>
-            <span className="id-value">{profile.name}</span>
+        {/* White Content Section */}
+        <div className="id-card-content">
+          <h2 className="id-card-name">{profile.name}</h2>
+          <p className="id-card-role">{profile.jobRole || 'Professional'}</p>
+          <div className="id-card-separator"></div>
+          
+          {profile.bio && <p className="id-card-bio">{profile.bio}</p>}
+          
+          <div className="id-card-fields">
+            {profile.email && <p className="id-card-field">{profile.email}</p>}
+            {profile.phone && <p className="id-card-field">{profile.phone}</p>}
+            {profile.location && <p className="id-card-field">{profile.location}</p>}
           </div>
-          {profile.email && (
-            <div className="id-row">
-              <span className="id-label">Email</span>
-              <span className="id-value">{profile.email}</span>
-            </div>
-          )}
-          {profile.phone && (
-            <div className="id-row">
-              <span className="id-label">Phone</span>
-              <span className="id-value">{profile.phone}</span>
-            </div>
-          )}
-          {profile.location && (
-            <div className="id-row">
-              <span className="id-label">Location</span>
-              <span className="id-value">{profile.location}</span>
-            </div>
-          )}
-          {profile.bio && (
-            <div className="id-row">
-              <span className="id-label">Bio</span>
-              <span className="id-value">{profile.bio}</span>
-            </div>
-          )}
+          
+          <div className="id-card-icons">📧 𝕏 📱</div>
         </div>
       </div>
     )
   }
 
-  // Template 2: Rounded Card with Red Gradient
+  // Template 2: Design Preservation (Static Layout with Dynamic Content)
   if (template === 'roundedCard') {
     return (
-      <div className="profile-card rounded-card">
-        <div className="rounded-card-top">
-          <div className="rounded-card-avatar">
+      <div className="profile-card design-card">
+        {/* Dark Charcoal Header */}
+        <div className="design-header">
+          <p className="design-header-text">{profile.jobRole || 'Professional'}</p>
+        </div>
+
+        {/* Teal Band with Circular Photo */}
+        <div className="design-photo-section">
+          <div className="design-photo-frame">
             {profile.photo && profile.photo.trim() ? (
-              <img src={profile.photo} alt={profile.name} className="avatar-image" />
+              <img src={profile.photo} alt={profile.name} className="design-photo" />
             ) : (
-              <div className="avatar-letter">{profile.name.charAt(0).toUpperCase()}</div>
+              <div className="design-photo-letter">{profile.name.charAt(0).toUpperCase()}</div>
             )}
           </div>
         </div>
 
-        <div className="rounded-card-bottom">
-          <h2 className="rounded-card-name">{profile.name}</h2>
-          <p className="rounded-card-role">{profile.jobRole || 'Professional'}</p>
-          {profile.bio && <p className="rounded-card-bio">{profile.bio}</p>}
-          {profile.email && <p className="rounded-card-contact">{profile.email}</p>}
-          {profile.phone && <p className="rounded-card-contact">{profile.phone}</p>}
-          {profile.location && <p className="rounded-card-contact">{profile.location}</p>}
+        {/* White Main Content Area */}
+        <div className="design-content">
+          <h2 className="design-name">{profile.name}</h2>
+          
+          <div className="design-fields">
+            {profile.email && (
+              <div className="design-field">
+                <span className="design-label">Email</span>
+                <span className="design-value">{profile.email}</span>
+              </div>
+            )}
+            {profile.phone && (
+              <div className="design-field">
+                <span className="design-label">Phone</span>
+                <span className="design-value">{profile.phone}</span>
+              </div>
+            )}
+            {profile.location && (
+              <div className="design-field">
+                <span className="design-label">Location</span>
+                <span className="design-value">{profile.location}</span>
+              </div>
+            )}
+            {profile.bio && (
+              <div className="design-field">
+                <span className="design-label">Bio</span>
+                <span className="design-value">{profile.bio}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Dark Gray Footer with Teal Stripe */}
+        <div className="design-footer">
+          <div className="design-footer-stripe"></div>
         </div>
       </div>
     )
@@ -101,7 +118,30 @@ const ProfileCard = ({ profile, template = 'idCard' }) => {
             <p className="full-bleed-role">{profile.jobRole || 'Professional'}</p>
             {profile.bio && <p className="full-bleed-bio">{profile.bio}</p>}
           </div>
-          <button className="full-bleed-follow-btn">Follow</button>
+          <div className="full-bleed-details">
+            <div className="full-bleed-detail-left">
+              {profile.email && (
+                <div className="full-bleed-detail-item">
+                  <span className="full-bleed-detail-label">Email</span>
+                  <span className="full-bleed-detail-value">{profile.email}</span>
+                </div>
+              )}
+              {profile.phone && (
+                <div className="full-bleed-detail-item">
+                  <span className="full-bleed-detail-label">Phone</span>
+                  <span className="full-bleed-detail-value">{profile.phone}</span>
+                </div>
+              )}
+            </div>
+            <div className="full-bleed-detail-right">
+              {profile.location && (
+                <div className="full-bleed-detail-item">
+                  <span className="full-bleed-detail-label">Location</span>
+                  <span className="full-bleed-detail-value">{profile.location}</span>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     )

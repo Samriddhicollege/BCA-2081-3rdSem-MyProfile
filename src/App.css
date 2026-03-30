@@ -10,13 +10,13 @@
   --primary: #7C3AED;
   --secondary: #06B6D4;
   --accent: #EC4899;
-  --text-light: #E5E7EB;
-  --text-muted: #A0AEC0;
+  --text-light: #ffffff;
+  --text-muted: #ffffff;
   --dark-bg: #0F172A;
   --dark-card: #1E293B;
   --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
   --text-dark: #1a1a1a;
-  --text: #E5E7EB;
+  --text: #ffffff;
   --border-light: #2D3748;
 }
 
