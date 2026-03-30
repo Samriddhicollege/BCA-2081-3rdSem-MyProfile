@@ -7,6 +7,12 @@
   animation: fadeIn 0.6s ease-out;
 }
 
+.top-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
 .profile-generator-page .back-button {
   display: inline-block;
   background: transparent;
@@ -22,10 +28,31 @@
   backdrop-filter: blur(10px);
 }
 
+.profile-generator-page .home-button {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #60A5FA;
+  color: #60A5FA;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
 .profile-generator-page .back-button:hover {
   background: linear-gradient(135deg, #3B82F6, #60A5FA);
   color: white;
   transform: translateX(-5px) scale(1.02);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.profile-generator-page .home-button:hover {
+  background: linear-gradient(135deg, #3B82F6, #60A5FA);
+  color: white;
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
@@ -78,6 +105,10 @@
 @media (max-width: 768px) {
   .profile-generator-page {
     padding: 20px 15px;
+  }
+
+  .top-actions {
+    flex-direction: column;
   }
 
   .generator-header h1 {

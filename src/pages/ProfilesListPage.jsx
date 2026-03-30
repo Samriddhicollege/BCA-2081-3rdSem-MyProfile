@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import ConfirmationModal from '../components/ConfirmationModal'
@@ -6,17 +6,9 @@ import '../css/ProfilesListPage.css'
 
 const ProfilesListPage = () => {
   const navigate = useNavigate()
-  const [profiles, setProfiles] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [profiles, setProfiles] = useState(() => JSON.parse(localStorage.getItem('allProfiles') || '[]'))
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [profileToDelete, setProfileToDelete] = useState(null)
-
-  // Load all profiles from localStorage on component mount
-  useEffect(() => {
-    const savedProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
-    setProfiles(savedProfiles)
-    setLoading(false)
-  }, [])
 
   const handleViewProfile = (profileId) => {
     // Find profile and set as current
@@ -53,14 +45,6 @@ const ProfilesListPage = () => {
 
   const handleBackToHome = () => {
     navigate('/')
-  }
-
-  if (loading) {
-    return (
-      <div className="profiles-list-page">
-        <p>Loading profiles...</p>
-      </div>
-    )
   }
 
   return (

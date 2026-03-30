@@ -319,28 +319,61 @@
   border-color: rgba(135, 206, 235, 0.3);
 }
 
-.preview-avatar {
-  width: 100px;
-  height: 100px;
+.saved-template-preview {
+  height: 120px;
+  margin: 0 auto 15px;
+  width: 100%;
+  max-width: 220px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.saved-template-preview.idCard {
+  background: linear-gradient(135deg, #E63946 0%, #B91C1C 100%);
+}
+
+.saved-template-preview.roundedCard {
+  background: linear-gradient(to bottom, #3d3d3d 0%, #3d3d3d 20%, #4dc8b4 20%, #4dc8b4 46%, #ffffff 46%, #ffffff 100%);
+}
+
+.saved-template-preview.fullBleed {
+  background: linear-gradient(180deg, #555 0%, #333 70%, rgba(0, 0, 0, 0.9) 100%);
+  border-color: #1a2e1a;
+}
+
+.saved-preview-content {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #87CEEB 0%, #6BB6D6 100%);
+  border: 3px solid white;
+  background: #2a2a2a;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 15px;
-  font-size: 2rem;
-  font-weight: bold;
   color: white;
-  border: 3px solid white;
-  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+  font-weight: 700;
   overflow: hidden;
 }
 
-.preview-avatar img {
+.saved-template-preview.roundedCard .saved-preview-content {
+  top: 35%;
+}
+
+.saved-preview-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+}
+
+.saved-fullbleed-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 100%);
 }
 
 .profile-preview-card h3 {

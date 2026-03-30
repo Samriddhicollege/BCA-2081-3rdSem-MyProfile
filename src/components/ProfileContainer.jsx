@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ProfileForm from './ProfileForm'
 import ProfileCard from './ProfileCard'
 import '../styles/ProfileContainer.css'
@@ -13,32 +13,30 @@ const SAMPLE_PROFILE = {
   bio: 'Passionate about building amazing user experiences with React and modern web technologies. Coffee enthusiast and tech blogger.'
 }
 
+const getStoredProfile = () => {
+  const savedData = localStorage.getItem('profileData')
+  if (!savedData) return null
+
+  try {
+    return JSON.parse(savedData)
+  } catch (error) {
+    console.error('Error parsing saved profile:', error)
+    return null
+  }
+}
+
+const emptyForm = {
+  name: '',
+  email: '',
+  jobRole: '',
+  phone: '',
+  location: '',
+  bio: ''
+}
+
 const ProfileContainer = () => {
-  // State management
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    jobRole: '',
-    phone: '',
-    location: '',
-    bio: ''
-  })
-
-  const [savedProfile, setSavedProfile] = useState(null)
-
-  // Load data from localStorage on component mount (useEffect)
-  useEffect(() => {
-    const savedData = localStorage.getItem('profileData')
-    if (savedData) {
-      try {
-        const parsedData = JSON.parse(savedData)
-        setSavedProfile(parsedData)
-        setFormData(parsedData)
-      } catch (error) {
-        console.error('Error parsing saved profile:', error)
-      }
-    }
-  }, [])
+  const [savedProfile, setSavedProfile] = useState(() => getStoredProfile())
+  const [formData, setFormData] = useState(() => getStoredProfile() || emptyForm)
 
   // Custom handler to fill sample data
   const handleFillSampleData = () => {
@@ -58,14 +56,7 @@ const ProfileContainer = () => {
     if (window.confirm('Are you sure you want to clear the profile?')) {
       localStorage.removeItem('profileData')
       setSavedProfile(null)
-      setFormData({
-        name: '',
-        email: '',
-        jobRole: '',
-        phone: '',
-        location: '',
-        bio: ''
-      })
+      setFormData(emptyForm)
     }
   }
 

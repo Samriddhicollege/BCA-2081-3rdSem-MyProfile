@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import Navbar from '../components/Navbar'
@@ -6,13 +6,10 @@ import '../css/HomePage.css'
 
 const HomePage = () => {
   const navigate = useNavigate()
-  const [savedProfiles, setSavedProfiles] = useState([])
-
-  // Load saved profiles on component mount
-  useEffect(() => {
+  const [savedProfiles] = useState(() => {
     const allProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
-    setSavedProfiles(allProfiles.slice(0, 4)) // Show first 4 profiles
-  }, [])
+    return allProfiles.slice(0, 4)
+  })
 
   const handleStartAsGuest = () => {
     navigate('/profile-generator')
@@ -103,11 +100,18 @@ const HomePage = () => {
             ) : (
               savedProfiles.map(profile => (
                 <div key={profile.id} className="profile-preview-card">
-                  <div className="preview-avatar">
-                    {profile.photo ? (
-                      <img src={profile.photo} alt={profile.name} />
-                    ) : (
-                      profile.name.charAt(0).toUpperCase()
+                  <div className={`saved-template-preview ${profile.template || 'idCard'}`}>
+                    {(profile.template || 'idCard') !== 'fullBleed' && (
+                      <div className="saved-preview-content">
+                        {profile.photo ? (
+                          <img src={profile.photo} alt={profile.name} />
+                        ) : (
+                          <span>{profile.name.charAt(0).toUpperCase()}</span>
+                        )}
+                      </div>
+                    )}
+                    {(profile.template || 'idCard') === 'fullBleed' && (
+                      <div className="saved-fullbleed-overlay" />
                     )}
                   </div>
                   <h3>{profile.name}</h3>

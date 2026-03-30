@@ -27,7 +27,9 @@ const ProfileDisplayPage = () => {
   }, [])
 
   const handleCreateNew = () => {
-    navigate('/profile-generator')
+    navigate('/profile-generator', {
+      state: { editProfile: profile }
+    })
   }
 
   const handleClearProfile = () => {
