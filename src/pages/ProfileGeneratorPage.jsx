@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProfileForm from '../components/ProfileForm'
 import TemplateSelector from '../components/TemplateSelector'
+import ConfirmationModal from '../components/ConfirmationModal'
 import '../css/ProfileGeneratorPage.css'
 
 // Sample data for demo
@@ -17,6 +18,7 @@ const SAMPLE_PROFILE = {
 
 const ProfileGeneratorPage = () => {
   const navigate = useNavigate()
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   
   // State management
   const [formData, setFormData] = useState({
@@ -69,9 +71,11 @@ const ProfileGeneratorPage = () => {
     // Also save as current profile for display
     localStorage.setItem('currentProfile', JSON.stringify(newProfile))
     
-    alert('Profile saved successfully!')
-    
-    // Navigate to profile display page
+    setShowSuccessModal(true)
+  }
+
+  const handleSuccessModalConfirm = () => {
+    setShowSuccessModal(false)
     navigate('/profile-display')
   }
 
@@ -102,6 +106,17 @@ const ProfileGeneratorPage = () => {
           onFillSample={handleFillSampleData}
         />
       </div>
+
+      <ConfirmationModal
+        isOpen={showSuccessModal}
+        title="Profile Saved"
+        message="Your profile has been created successfully! Click 'Continue' to view your profile card."
+        onConfirm={handleSuccessModalConfirm}
+        onCancel={handleSuccessModalConfirm}
+        confirmText="Continue"
+        cancelText="Continue"
+        type="success"
+      />
     </div>
   )
 }

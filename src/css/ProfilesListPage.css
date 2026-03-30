@@ -38,16 +38,18 @@
 .list-header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: var(--text-dark);
+  color: #1a1a1a;
   text-shadow: none;
   animation: slideDown 0.6s ease-out;
+  font-weight: 800;
 }
 
 .list-header p {
   font-size: 1.1rem;
-  opacity: 0.9;
-  color: var(--text-light);
+  opacity: 1;
+  color: #4a5568;
   animation: slideDown 0.6s ease-out 0.1s both;
+  font-weight: 500;
 }
 
 .list-actions {

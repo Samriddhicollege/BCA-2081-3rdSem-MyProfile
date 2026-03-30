@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProfileCard from '../components/ProfileCard'
 import Button from '../components/Button'
+import ConfirmationModal from '../components/ConfirmationModal'
 import '../css/ProfileDisplayPage.css'
 
 const ProfileDisplayPage = () => {
   const navigate = useNavigate()
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const profileRef = useRef(null)
 
   // Load profile from localStorage on component mount
@@ -29,19 +31,26 @@ const ProfileDisplayPage = () => {
   }
 
   const handleClearProfile = () => {
-    if (window.confirm('Are you sure you want to remove this profile?')) {
-      // Get all profiles
-      const allProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
-      
-      // Remove current profile from list
-      const updatedProfiles = allProfiles.filter(p => p.id !== profile.id)
-      
-      // Update localStorage
-      localStorage.setItem('allProfiles', JSON.stringify(updatedProfiles))
-      localStorage.removeItem('currentProfile')
-      
-      setProfile(null)
-    }
+    setShowDeleteModal(true)
+  }
+
+  const handleConfirmDelete = () => {
+    // Get all profiles
+    const allProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
+    
+    // Remove current profile from list
+    const updatedProfiles = allProfiles.filter(p => p.id !== profile.id)
+    
+    // Update localStorage
+    localStorage.setItem('allProfiles', JSON.stringify(updatedProfiles))
+    localStorage.removeItem('currentProfile')
+    
+    setShowDeleteModal(false)
+    setProfile(null)
+  }
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false)
   }
 
   const handleDownloadPDF = async () => {
@@ -152,6 +161,17 @@ const ProfileDisplayPage = () => {
           )}
         </div>
       </div>
+
+      <ConfirmationModal
+        isOpen={showDeleteModal}
+        title="Delete Profile"
+        message="Are you sure you want to remove this profile? This action cannot be undone."
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        confirmText="Delete"
+        cancelText="Cancel"
+        type="danger"
+      />
     </div>
   )
 }

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
+import ConfirmationModal from '../components/ConfirmationModal'
 import '../css/ProfilesListPage.css'
 
 const ProfilesListPage = () => {
   const navigate = useNavigate()
   const [profiles, setProfiles] = useState([])
   const [loading, setLoading] = useState(true)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [profileToDelete, setProfileToDelete] = useState(null)
 
   // Load all profiles from localStorage on component mount
   useEffect(() => {
@@ -25,11 +28,23 @@ const ProfilesListPage = () => {
   }
 
   const handleDeleteProfile = (profileId) => {
-    if (window.confirm('Are you sure you want to delete this profile?')) {
-      const updatedProfiles = profiles.filter(p => p.id !== profileId)
+    setProfileToDelete(profileId)
+    setShowDeleteModal(true)
+  }
+
+  const handleConfirmDelete = () => {
+    if (profileToDelete) {
+      const updatedProfiles = profiles.filter(p => p.id !== profileToDelete)
       setProfiles(updatedProfiles)
       localStorage.setItem('allProfiles', JSON.stringify(updatedProfiles))
+      setShowDeleteModal(false)
+      setProfileToDelete(null)
     }
+  }
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false)
+    setProfileToDelete(null)
   }
 
   const handleCreateNew = () => {
@@ -111,6 +126,17 @@ const ProfilesListPage = () => {
           </div>
         )}
       </div>
+
+      <ConfirmationModal
+        isOpen={showDeleteModal}
+        title="Delete Profile"
+        message="Are you sure you want to delete this profile? This action cannot be undone."
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        confirmText="Delete"
+        cancelText="Cancel"
+        type="danger"
+      />
     </div>
   )
 }

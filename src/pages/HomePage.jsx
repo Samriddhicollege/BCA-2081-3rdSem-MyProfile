@@ -11,7 +11,7 @@ const HomePage = () => {
   // Load saved profiles on component mount
   useEffect(() => {
     const allProfiles = JSON.parse(localStorage.getItem('allProfiles') || '[]')
-    setSavedProfiles(allProfiles.slice(0, 3)) // Show only first 3 profiles
+    setSavedProfiles(allProfiles.slice(0, 4)) // Show first 4 profiles
   }, [])
 
   const handleStartAsGuest = () => {
