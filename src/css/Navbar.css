@@ -206,8 +206,7 @@
 }
 
 .feature-item:hover .feature-icon,
-.feature-item:hover h3,
-.feature-item:hover p {
+.feature-item:hover h3 {
   color: white;
 }
 
@@ -225,9 +224,14 @@
 }
 
 .feature-item p {
-  color: #ffffff;
+  color: #000000;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+}
+
+.feature-item:hover p,
+.features-modal p {
+  color: #000000;
 }
 
 @media (max-width: 768px) {

@@ -53,17 +53,26 @@ const ProfileDisplayPage = () => {
     setShowDeleteModal(false)
   }
 
-  const handleDownloadPDF = async () => {
+  const handleDownloadPNG = async () => {
     try {
-      // Dynamically import required libraries
-      const html2pdf = (await import('html2pdf.js')).default
+      console.log('Starting PNG download...')
       
-      // Create a clone of the profile card for PDF generation
-      const element = profileRef.current
+      const wrapper = profileRef.current
+      if (!wrapper) {
+        console.warn('Profile card not found.')
+        return
+      }
+
+      const element = wrapper.querySelector('.profile-card') || wrapper
+
+      // Import dependency lazily so normal page load stays fast.
+      const html2canvas = (await import('html2canvas')).default
       
-      // Ensure all images are loaded before generating PDF
+      // Wait for images to load
       const images = element.querySelectorAll('img')
-      const imagePromises = Array.from(images).map(img => {
+      console.log('Waiting for images...')
+      
+      await Promise.all(Array.from(images).map(img => {
         return new Promise((resolve) => {
           if (img.complete) {
             resolve()
@@ -72,33 +81,56 @@ const ProfileDisplayPage = () => {
             img.onerror = resolve
           }
         })
-      })
+      }))
+
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready
+      }
+
+      // Let the browser finish paint/layout before capturing.
+      await new Promise((resolve) => requestAnimationFrame(resolve))
       
-      await Promise.all(imagePromises)
-      
-      const opt = {
-        margin: [10, 10, 10, 10],
-        filename: `${profile.name}_Profile_Card.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-          scale: 2,
-          useCORS: true,
-          allowTaint: true,
-          logging: false,
-          windowHeight: element.scrollHeight
-        },
-        jsPDF: { 
-          orientation: 'portrait', 
-          unit: 'mm', 
-          format: 'a4',
-          compress: true
-        }
+      console.log('All assets loaded, capturing canvas...')
+
+      const rect = element.getBoundingClientRect()
+      if (!rect.width || !rect.height) {
+        console.warn('Profile card is not visible yet.')
+        return
       }
       
-      html2pdf().set(opt).from(element).save()
+      // Capture the profile card and download as PNG.
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: false,
+        backgroundColor: '#ffffff',
+        logging: false,
+        width: Math.ceil(rect.width),
+        height: Math.ceil(rect.height),
+        foreignObjectRendering: false,
+        onclone: (clonedDoc) => {
+          const clonedEl = clonedDoc.querySelector('.profile-card')
+          if (clonedEl) {
+            clonedEl.style.animation = 'none'
+            clonedEl.style.transition = 'none'
+            clonedEl.style.transform = 'none'
+            clonedEl.style.opacity = '1'
+          }
+        }
+      })
+      
+      console.log('Canvas captured successfully, generating PNG...')
+
+      const imageData = canvas.toDataURL('image/png', 1.0)
+      const link = document.createElement('a')
+      link.href = imageData
+      link.download = `${profile.name}_Profile_Card.png`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      
     } catch (error) {
-      console.error('Error generating PDF:', error)
-      alert('Failed to download PDF. Please try again.')
+      console.error('Error downloading PNG:', error)
     }
   }
 
@@ -138,8 +170,8 @@ const ProfileDisplayPage = () => {
                 variant="primary"
               />
               <Button 
-                text="Download as PDF" 
-                onClick={handleDownloadPDF}
+                text="Download as PNG" 
+                onClick={handleDownloadPNG}
                 variant="primary"
               />
               <Button 
