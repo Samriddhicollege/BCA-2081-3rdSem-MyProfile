@@ -1,17 +1,20 @@
 /* App Main Styles - Modern SaaS Blue Theme */
 :root {
-  --primary: #87CEEB;
-  --primary-dark: #6BB6D6;
-  --primary-light: #E0F6FF;
-  --background-dark: #e6f2f7;
-  --background-light: #f0f8fc;
-  --text-dark: #1a1a1a;
-  --text-light: #666666;
-  --text-muted: #999999;
-  --border-light: rgba(135, 206, 235, 0.15);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+  --primary: #3B82F6;
+  --primary-dark: #1E40AF;
+  --primary-light: #DBEAFE;
+  --accent: #60A5FA;
+  --background-main: #0B1120;
+  --background-secondary: #111827;
+  --background-tertiary: #1F2937;
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --border-color: #1F2937;
+  --border-light: rgba(59, 130, 246, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -26,15 +29,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #e0f6ff 0%, #f0f8fc 100%);
-  color: var(--text-dark);
+  background: #0B1120;
+  color: var(--text-primary);
   min-height: 100vh;
 }
 
 .app {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e0f6ff 0%, #f0f8fc 100%);
+  background: #0B1120;
 }
 
 @keyframes slideDown {

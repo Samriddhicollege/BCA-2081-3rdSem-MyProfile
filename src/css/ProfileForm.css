@@ -1,15 +1,19 @@
-/* ProfileForm Component Styles - Modern SaaS Blue Theme */
+/* ProfileForm Component Styles - Modern Creative Dark Theme */
 .profile-form {
-  background: white;
+  background: rgba(17, 24, 39, 0.6);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
   margin-bottom: 20px;
-  border: 1px solid rgba(135, 206, 235, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .profile-form h2 {
-  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 25px;
   font-size: 1.8rem;
   text-align: center;
@@ -21,34 +25,6 @@
   flex-direction: column;
 }
 
-.textarea-field {
-  padding: 12px 15px;
-  border: 2px solid rgba(135, 206, 235, 0.2);
-  border-radius: 12px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: all 0.3s ease;
-  background-color: white;
-  color: var(--text-dark);
-  resize: vertical;
-  min-height: 100px;
-}
-
-.textarea-field:focus {
-  outline: none;
-  border-color: #87CEEB;
-  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
-  background-color: white;
-}
-
-.textarea-field:hover {
-  border-color: #87CEEB;
-}
-
-.textarea-field::placeholder {
-  color: var(--text-muted);
-}
-
 .photo-upload-container {
   margin-bottom: 20px;
   display: flex;
@@ -58,8 +34,10 @@
 .photo-upload-label {
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--text-dark);
+  color: var(--text-secondary);
   font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .photo-input-wrapper {
@@ -71,11 +49,11 @@
 
 .photo-input-field {
   padding: 10px 15px;
-  border: 2px dashed #87CEEB;
+  border: 2px dashed #3B82F6;
   border-radius: 12px;
   font-size: 0.9rem;
-  background-color: white;
-  color: var(--text-dark);
+  background: rgba(17, 24, 39, 0.5);
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
   flex: 1;
@@ -83,7 +61,8 @@
 
 .photo-input-field:hover {
   border-style: solid;
-  background-color: rgba(135, 206, 235, 0.05);
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #60A5FA;
 }
 
 .photo-preview {
@@ -91,8 +70,8 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #87CEEB;
-  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.2);
+  border: 2px solid #3B82F6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 .form-actions {

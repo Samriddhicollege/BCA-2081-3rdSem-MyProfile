@@ -1,7 +1,8 @@
-/* ProfileGeneratorPage Styles - Modern SaaS Blue Theme */
+/* ProfileGeneratorPage Styles - Modern Creative Dark Theme */
 .profile-generator-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #0B1120 0%, #0F172A 50%, #111827 100%);
+  background-attachment: fixed;
   padding: 40px 20px;
   animation: fadeIn 0.6s ease-out;
 }
@@ -9,8 +10,8 @@
 .profile-generator-page .back-button {
   display: inline-block;
   background: transparent;
-  border: 2px solid #4F8CFF;
-  color: #4F8CFF;
+  border: 2px solid #60A5FA;
+  color: #60A5FA;
   padding: 10px 20px;
   border-radius: 12px;
   cursor: pointer;
@@ -22,14 +23,15 @@
 }
 
 .profile-generator-page .back-button:hover {
-  background: #4F8CFF;
+  background: linear-gradient(135deg, #3B82F6, #60A5FA);
   color: white;
-  transform: translateX(-5px);
+  transform: translateX(-5px) scale(1.02);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
 .generator-header {
   text-align: center;
-  color: var(--text-dark);
+  color: var(--text-primary);
   margin-bottom: 40px;
   animation: slideDown 0.6s ease-out 0.1s both;
 }
@@ -37,20 +39,16 @@
 .generator-header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: var(--text-dark);
-  text-shadow: none;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .generator-header p {
   font-size: 1.1rem;
   opacity: 0.9;
-  color: var(--text-light);
-}
-
-.generator-container {
-  max-width: 700px;
-  margin: 0 auto;
-  animation: fadeIn 0.6s ease-out 0.2s both;
+  color: var(--text-muted);
 }
 
 .generator-container {

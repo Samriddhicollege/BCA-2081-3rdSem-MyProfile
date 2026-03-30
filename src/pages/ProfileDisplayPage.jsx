@@ -117,7 +117,7 @@ const ProfileDisplayPage = () => {
 
       <div className="display-container">
         <div className="card-wrapper" ref={profileRef}>
-          <ProfileCard profile={profile} />
+          <ProfileCard profile={profile} template={profile?.template || 'idCard'} />
         </div>
 
         <div className="display-actions">

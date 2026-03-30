@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProfileForm from '../components/ProfileForm'
+import TemplateSelector from '../components/TemplateSelector'
 import '../css/ProfileGeneratorPage.css'
 
 // Sample data for demo
@@ -25,7 +26,8 @@ const ProfileGeneratorPage = () => {
     phone: '',
     location: '',
     bio: '',
-    photo: null
+    photo: null,
+    template: 'idCard'
   })
 
   // Custom handler to fill sample data
@@ -33,6 +35,14 @@ const ProfileGeneratorPage = () => {
     setFormData(prev => ({
       ...prev,
       ...SAMPLE_PROFILE
+    }))
+  }
+
+  // Handle template selection
+  const handleSelectTemplate = (templateId) => {
+    setFormData(prev => ({
+      ...prev,
+      template: templateId
     }))
   }
 
@@ -81,6 +91,10 @@ const ProfileGeneratorPage = () => {
       </div>
 
       <div className="generator-container">
+        <TemplateSelector 
+          selectedTemplate={formData.template}
+          onSelectTemplate={handleSelectTemplate}
+        />
         <ProfileForm
           formData={formData}
           setFormData={setFormData}
