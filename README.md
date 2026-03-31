@@ -1,6 +1,6 @@
 ## Project Title
 
-> *Profile Card Generator*
+> **Profile Card Generator**
 
 ---
 
@@ -17,7 +17,7 @@
 
 * **Instructor Name:** Mr. Dipak Shrestha
 * **Course Title:** React Development / Full Stack Development
-* **College Name:** XYZ International College
+* **College Name:** Samriddhi College
 
 ---
 
@@ -119,8 +119,8 @@ myproject/
 
 ## GitHub & Live Demo
 
-* **GitHub Repository:** [Insert your GitHub URL here]
-* **Live URL (if deployed):** [Insert your Live URL here]
+* **GitHub Repository:** https://github.com/Samriddhicollege/BCA-2081-3rdSem-MyProfile
+* **Live URL (if deployed):** https://myprofile3rd.vercel.app/
 
 ---
 
