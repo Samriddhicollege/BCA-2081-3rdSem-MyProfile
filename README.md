@@ -81,7 +81,7 @@
 
 ```bash
 # Clone repository
-git clone [Your GitHub Repository URL]
+git clone https://github.com/Samriddhicollege/BCA-2081-3rdSem-MyProfile
 
 # Go to project folder
 cd myproject
