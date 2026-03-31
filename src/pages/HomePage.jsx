@@ -48,7 +48,7 @@ const HomePage = () => {
           
           <div className="hero-cta">
             <button className="btn btn-primary" onClick={handleStartAsGuest}>
-              Start as Guest
+              Create Profile Now
             </button>
           </div>
         </div>
